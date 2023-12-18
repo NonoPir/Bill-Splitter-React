@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
+body {
+  background-color: #c5e4e7;
+  font-family: "Space Mono", monospace;
+}
+#header {
+  color: #44646c;
+}
+#background {
+  height: 550px;
+
+  background: white;
+}
+#billInput {
+  color: hsl(183, 100%, 15%);
+  border-width: 2px;
+  font-size: 24px;
+}
+#billInput:focus {
+  border-color: hsl(172, 67%, 45%);
+}
+#tip-button {
+  height: 50px;
+  width: 120px;
+  border-radius: 8px;
+  font-size: 24px;
+  color: white;
+}
+
+#tip-input {
+  color: hsl(183, 100%, 15%);
+  font-size: 24px;
+  width: 120px;
+  border-radius: 8px;
+}
+#tip-input:focus {
+  border-width: 2px;
+  border-color: hsl(172, 67%, 45%);
+}
+#numberInput {
+  color: hsl(183, 100%, 15%);
+  border-width: 2px;
+  font-size: 24px;
+}
+#displayBackground {
+  width: 400px;
+  height: 400px;
+}
+/* #numberInput:focus {
+  border-color: hsl(172, 67%, 45%);
+} */
