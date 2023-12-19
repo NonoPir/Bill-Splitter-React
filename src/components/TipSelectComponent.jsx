@@ -1,17 +1,32 @@
 import React, { useState } from "react";
-const TipSelectComponent = ({ peopleAmount, setIsValueZero }) => {
+const TipSelectComponent = ({
+  peopleAmount,
+  setTipButtonIndex,
+  isValueZero,
+  setIsValueZero,
+  buttonActive,
+  setButtonActive,
+  setCustomInputValue,
+  customInputValue,
+}) => {
   const [isInputActive, setIsInputActive] = useState(false);
-  const [buttonActive, setButtonActive] = useState(0);
+
   const buttonsList = {
     firstList: [5, 10, 15],
     secondList: [25, 50],
   };
-
-  function handleClickTipButton(percentage) {
+  const handleInput = (e) => {
+    setCustomInputValue(e);
+  };
+  const handleClickTipButton = (percentage) => {
     setButtonActive(percentage);
-    if (peopleAmount.startsWith(0)) setIsValueZero(true);
-    else setIsValueZero(false);
-  }
+    if (peopleAmount == 0 || (peopleAmount && peopleAmount.startsWith("0"))) {
+      setIsValueZero(true);
+    } else {
+      setIsValueZero(false);
+    }
+    setTipButtonIndex(percentage);
+  };
 
   return (
     <div>
@@ -25,11 +40,14 @@ const TipSelectComponent = ({ peopleAmount, setIsValueZero }) => {
               key={percentage}
               onClick={() => handleClickTipButton(percentage)}
               className={`${
-                buttonActive === percentage && peopleAmount != 0
+                buttonActive === percentage &&
+                customInputValue == 0 &&
+                peopleAmount != 0 &&
+                !isValueZero
                   ? "bg-teal-500 text-teal-900"
                   : "bg-teal-900 text-white"
               } ${
-                buttonActive === percentage && peopleAmount != 0
+                buttonActive === percentage && peopleAmount != 0 && !isValueZero
                   ? ""
                   : "hover:bg-teal-300"
               }`}
@@ -45,11 +63,14 @@ const TipSelectComponent = ({ peopleAmount, setIsValueZero }) => {
               key={percentage}
               onClick={() => handleClickTipButton(percentage)}
               className={` ${
-                buttonActive === percentage && peopleAmount != 0
+                buttonActive === percentage &&
+                customInputValue == 0 &&
+                peopleAmount != 0 &&
+                !isValueZero
                   ? "bg-teal-500 text-teal-900"
                   : "bg-teal-900 text-white"
               } ${
-                buttonActive === percentage && peopleAmount != 0
+                buttonActive === percentage && peopleAmount != 0 && !isValueZero
                   ? ""
                   : "hover:bg-teal-300 "
               }`}
@@ -59,6 +80,7 @@ const TipSelectComponent = ({ peopleAmount, setIsValueZero }) => {
             </button>
           ))}
           <input
+            onChange={(e) => handleInput(e.target.value)}
             onClick={(e) => {
               setIsInputActive(!isInputActive);
             }}

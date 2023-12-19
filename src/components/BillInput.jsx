@@ -1,6 +1,9 @@
 import React from "react";
 
-const BillInput = () => {
+const BillInput = ({ setBillAmount, billAmount }) => {
+  const handleInput = (e) => {
+    setBillAmount(e);
+  };
   return (
     <>
       <div>
@@ -8,10 +11,12 @@ const BillInput = () => {
         <form>
           <div className="relative">
             <input
+              value={billAmount}
               autoComplete="off"
               id="billInput"
               type="text"
               className="bg-gray-100 absolute rounded-md w-full h-12 pl-6 pr-6 outline-none text-right"
+              onInput={(e) => handleInput(e.target.value)}
             />
             <img
               className="absolute mt-3.5 pl-5"
