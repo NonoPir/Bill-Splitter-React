@@ -9,7 +9,7 @@ const TipSelectComponent = ({ peopleAmount, setIsValueZero }) => {
 
   function handleClickTipButton(percentage) {
     setButtonActive(percentage);
-    if (peopleAmount == 0) setIsValueZero(true);
+    if (peopleAmount.startsWith(0)) setIsValueZero(true);
     else setIsValueZero(false);
   }
 
@@ -26,9 +26,13 @@ const TipSelectComponent = ({ peopleAmount, setIsValueZero }) => {
               onClick={() => handleClickTipButton(percentage)}
               className={`${
                 buttonActive === percentage && peopleAmount != 0
-                  ? "bg-teal-500"
-                  : "bg-teal-900"
-              } ${buttonActive === percentage ? "" : "hover:bg-teal-300"}`}
+                  ? "bg-teal-500 text-teal-900"
+                  : "bg-teal-900 text-white"
+              } ${
+                buttonActive === percentage && peopleAmount != 0
+                  ? ""
+                  : "hover:bg-teal-300"
+              }`}
               id="tip-button"
             >
               {percentage}%
@@ -40,11 +44,15 @@ const TipSelectComponent = ({ peopleAmount, setIsValueZero }) => {
             <button
               key={percentage}
               onClick={() => handleClickTipButton(percentage)}
-              className={`${
+              className={` ${
                 buttonActive === percentage && peopleAmount != 0
-                  ? "bg-teal-500"
-                  : "bg-teal-900"
-              } ${buttonActive === percentage ? "" : "hover:bg-teal-300"}`}
+                  ? "bg-teal-500 text-teal-900"
+                  : "bg-teal-900 text-white"
+              } ${
+                buttonActive === percentage && peopleAmount != 0
+                  ? ""
+                  : "hover:bg-teal-300 "
+              }`}
               id="tip-button"
             >
               {percentage}%

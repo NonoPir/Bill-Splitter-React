@@ -5,7 +5,7 @@ import { useState } from "react";
 import BillAmountDisplay from "./BillAmountDisplay";
 const UIComponent = () => {
   const [peopleAmount, setPeopleAmount] = useState(0);
-  const [isValueZero, setIsValueZero] = useState(null);
+  const [isValueZero, setIsValueZero] = useState(undefined);
   console.log(isValueZero);
   return (
     <>
