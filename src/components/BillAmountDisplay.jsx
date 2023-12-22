@@ -41,7 +41,7 @@ const BillAmountDisplay = ({
   };
   return (
     <div id="displayBackground" className="rounded-2xl bg-teal-900">
-      <div className="w-80 h-1/2 flex flex-col mt-5 ml-10 justify-around">
+      <div className="w-80 md:h-1/2 flex flex-col mt-5 ml-10 justify-around">
         <div className="flex w-full justify-between">
           <div className="flex flex-col">
             <h2 className="text-white">Tip Amount</h2>
@@ -49,7 +49,9 @@ const BillAmountDisplay = ({
           </div>
           <div>
             <h1 className="text-5xl text-teal-500">
-              {customInputValue == 0 ? "$" + tipAmount : "$" + customTipAmount}
+              {customInputValue == 0
+                ? "$" + tipAmount.toFixed(2)
+                : "$" + customTipAmount.toFixed(2)}
             </h1>
           </div>
         </div>
@@ -62,7 +64,7 @@ const BillAmountDisplay = ({
             <h1 className="text-5xl text-teal-500">
               {buttonActive != 0
                 ? `$${finalAmount != 0 ? finalAmount : "0"}`
-                : "$" + billPerPerson}
+                : "$" + billPerPerson.toFixed(2)}
             </h1>
           </div>
         </div>

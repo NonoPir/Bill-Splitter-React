@@ -3,6 +3,8 @@ const PeopleNumberInputComponent = ({
   isValueZero,
   setIsValueZero,
   peopleAmount,
+  resetInputValue,
+  customInputValue,
 }) => {
   const inputValueUpdater = (e) => {
     setPeopleAmount(e);
@@ -19,7 +21,7 @@ const PeopleNumberInputComponent = ({
         <form>
           <div className="relative">
             <input
-              value={peopleAmount}
+              value={peopleAmount === 0 ? resetInputValue : peopleAmount}
               autoComplete="off"
               onChange={(e) => inputValueUpdater(e.target.value)}
               id="numberInput"

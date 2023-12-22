@@ -1,9 +1,10 @@
 import React from "react";
 
-const BillInput = ({ setBillAmount, billAmount }) => {
+const BillInput = ({ setBillAmount, billAmount, resetInputValue }) => {
   const handleInput = (e) => {
     setBillAmount(e);
   };
+
   return (
     <>
       <div>
@@ -11,7 +12,7 @@ const BillInput = ({ setBillAmount, billAmount }) => {
         <form>
           <div className="relative">
             <input
-              value={billAmount}
+              value={billAmount === 0 ? resetInputValue : billAmount}
               autoComplete="off"
               id="billInput"
               type="text"

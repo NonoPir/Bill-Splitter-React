@@ -10,7 +10,8 @@ const UIComponent = () => {
   const [billAmount, setBillAmount] = useState(0);
   const [peopleAmount, setPeopleAmount] = useState(0);
   const [isValueZero, setIsValueZero] = useState(null);
-
+  const resetInputValue = "";
+  console.log(billAmount, peopleAmount);
   return (
     <>
       <div>
@@ -20,10 +21,14 @@ const UIComponent = () => {
       </div>
       <div
         id="background"
-        className=" flex justify-between mt-16 p-14 w-1/2 text-gray-500 rounded-3xl"
+        className=" flex md:justify-between flex-col md:flex-row md:mt-16 md:p-14 md:w-1/2 text-gray-500 rounded-3xl"
       >
         <div className="flex flex-col justify-between w-96 h-4/5">
-          <BillInput setBillAmount={setBillAmount} billAmount={billAmount} />
+          <BillInput
+            setBillAmount={setBillAmount}
+            billAmount={billAmount}
+            resetInputValue={resetInputValue}
+          />
           <TipSelectComponent
             setCustomInputValue={setCustomInputValue}
             setTipButtonIndex={setTipButtonIndex}
@@ -33,14 +38,18 @@ const UIComponent = () => {
             buttonActive={buttonActive}
             setButtonActive={setButtonActive}
             customInputValue={customInputValue}
+            resetInputValue={resetInputValue}
           />
           <PeopleNumberInputComponent
             isValueZero={isValueZero}
             setIsValueZero={setIsValueZero}
             setPeopleAmount={setPeopleAmount}
             peopleAmount={peopleAmount}
+            resetInputValue={resetInputValue}
+            customInputValue={customInputValue}
           />
         </div>
+
         <BillAmountDisplay
           billAmount={billAmount}
           peopleAmount={peopleAmount}

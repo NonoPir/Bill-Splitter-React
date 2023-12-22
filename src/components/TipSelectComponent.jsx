@@ -8,6 +8,7 @@ const TipSelectComponent = ({
   setButtonActive,
   setCustomInputValue,
   customInputValue,
+  resetInputValue,
 }) => {
   const [isInputActive, setIsInputActive] = useState(false);
 
@@ -80,6 +81,7 @@ const TipSelectComponent = ({
             </button>
           ))}
           <input
+            value={customInputValue === 0 ? resetInputValue : customInputValue}
             onChange={(e) => handleInput(e.target.value)}
             onClick={(e) => {
               setIsInputActive(!isInputActive);
